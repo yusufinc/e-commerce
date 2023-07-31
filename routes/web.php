@@ -23,3 +23,4 @@ Route::get('/urun/detay',[PageController::class,'urundetay'])->name('urundetay')
 Route::get('/hakkimizda',[PageController::class,'hakkimizda'])->name('hakkimizda');
 
 Route::get('/iletisim',[PageController::class,'iletisim'])->name('iletisim');
+Route::get('/sepet',[PageController::class,'cart'])->name('sepet');
