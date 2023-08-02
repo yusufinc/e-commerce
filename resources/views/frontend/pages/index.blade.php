@@ -22,8 +22,8 @@
         <div class="row">
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
             <div class="icon mr-4 align-self-start">
-              <span class="icon-truck"></span>
-            </div>
+                <i class="fa-solid fa-truck-fast fa-3x" style="color: #007bff;"></i>
+              </div>
             <div class="text">
               <h2 class="text-uppercase">Bedava Kargo</h2>
               <p>Ürünlerinizi size hızlı ve ücretsiz şekilde ulaşmasını sağlarız.</p>
@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
             <div class="icon mr-4 align-self-start">
-              <span class="icon-refresh2"></span>
+                <i class="fa-solid fa-repeat fa-3x" style="color: #007bff;"></i>
             </div>
             <div class="text">
               <h2 class="text-uppercase">Geri İade</h2>
@@ -40,7 +40,7 @@
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
             <div class="icon mr-4 align-self-start">
-              <span class="icon-help"></span>
+                <i class="fa-regular fa-circle-question fa-3x" style="color: #007bff;"></i>
             </div>
             <div class="text">
               <h2 class="text-uppercase">Müşteri Hizmeti</h2>

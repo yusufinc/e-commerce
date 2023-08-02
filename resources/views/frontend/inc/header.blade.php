@@ -19,11 +19,11 @@
           <div class="col-6 col-md-4 order-3 order-md-3 text-right">
             <div class="site-top-icons">
               <ul>
-                <li><a href="#"><span class="icon icon-person"></span></a></li>
-                <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                <li>
+                <li class="px-1"><a href="#"><i class="fa-solid fa-user fa-lg"></i></a></li>
+                <li class="px-1"><a href="#"><i class="fa-solid fa-heart fa-lg"></i></a></li>
+                <li class="px-1">
                   <a href="{{route('sepet')}}" class="site-cart">
-                    <span class="icon icon-shopping_cart"></span>
+                    <i class="fa-solid fa-cart-shopping fa-lg"></i>
                     <span class="count">2</span>
                   </a>
                 </li>
