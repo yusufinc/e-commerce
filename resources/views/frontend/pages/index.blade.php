@@ -110,6 +110,7 @@
                     <h3><a href="#">Tank Top</a></h3>
                     <p class="mb-0">Finding perfect t-shirt</p>
                     <p class="text-primary font-weight-bold">50 ₺</p>
+                    <a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a>
                   </div>
                 </div>
               </div>
@@ -122,6 +123,7 @@
                     <h3><a href="#">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">50 ₺</p>
+                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>
@@ -134,6 +136,7 @@
                     <h3><a href="#">Polo Shirt</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">50 ₺</p>
+                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>
@@ -146,6 +149,7 @@
                     <h3><a href="#">T-Shirt Mockup</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
+                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>
@@ -158,6 +162,7 @@
                     <h3><a href="#">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
+                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>

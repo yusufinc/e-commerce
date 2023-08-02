@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
             'thumbnail'=> null,
             'cat_ust'=> null,
             'name' => 'Erkek',
-            'content'=> 'e-commercim sitesine hoş geldiniz',
+            'content'=> 'Erkek Giyim',
             'status'=> '1'
         ]);
 
@@ -27,7 +27,15 @@ class CategorySeeder extends Seeder
             'thumbnail'=> null,
             'cat_ust'=> $erkek->id,
             'name' => 'Erkek Kazak',
-            'content'=> 'e-commercim sitesine hoş geldiniz',
+            'content'=> 'Erkek Kazak Giyim',
+            'status'=> '1'
+        ]);
+        Category::create([
+            'image' => null,
+            'thumbnail'=> null,
+            'cat_ust'=> $erkek->id,
+            'name' => 'Erkek Pantolon',
+            'content'=> 'Erkek Pantolonlar',
             'status'=> '1'
         ]);
 
@@ -40,12 +48,46 @@ class CategorySeeder extends Seeder
             'status'=> '1'
         ]);
 
+         Category::create([
+            'image' => null,
+            'thumbnail'=> null,
+            'cat_ust'=> $kadin->id,
+            'name' => 'Kadın Çanta',
+            'content'=> 'Kadın Çantalar',
+            'status'=> '1'
+        ]);
+         Category::create([
+            'image' => null,
+            'thumbnail'=> null,
+            'cat_ust'=> $kadin->id,
+            'name' => 'Kadın Pantolon',
+            'content'=> 'Kadın Pantolonlar',
+            'status'=> '1'
+        ]);
+
      $cocuk =  Category::create([
             'image' => null,
             'thumbnail'=> null,
             'cat_ust'=> null,
             'name' => 'Çocuk',
             'content'=> 'Çocuk Giyim',
+            'status'=> '1'
+        ]);
+
+            Category::create([
+            'image' => null,
+            'thumbnail'=> null,
+            'cat_ust'=>  $cocuk->id,
+            'name' => 'Çocuk Oyuncak',
+            'content'=> 'Çocuk Oyuncaklar',
+            'status'=> '1'
+        ]);
+            Category::create([
+            'image' => null,
+            'thumbnail'=> null,
+            'cat_ust'=>  $cocuk->id,
+            'name' => 'Çocuk Pantolon',
+            'content'=> 'Çocuk Pantolonlar',
             'status'=> '1'
         ]);
 
