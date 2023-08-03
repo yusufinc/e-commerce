@@ -18,11 +18,11 @@
         </div>
         <div class="col-md-6 col-lg-6">
           <div class="block-5 mb-5">
-            <h3 class="footer-heading mb-4">İletişim</h3>
+            <h3 class="footer-heading mb-4">İetişim Bilgilerim</h3>
             <ul class="list-unstyled">
-              <li class="address">Arnavutköy/İstanbul, Türkiye</li>
-              <li class="phone"><a href="tel://05440000000">+90 505 767 9152</a></li>
-              <li class="email">test@domain.com</li>
+              <li class="address">{{$settings['adres']}}</li>
+              <li class="phone"><a href="tel://{{str_replace(' ','',$settings['phone'])}}">{{$settings['phone']}}</a></li>
+              <li class="email">{{$settings['email']}}</li>
             </ul>
           </div>
         </div>

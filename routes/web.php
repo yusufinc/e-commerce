@@ -14,19 +14,25 @@ use App\Http\Controllers\frontend\PageController;
 |
 */
 
-Route::get('/',[PageHomeController::class,'anasayfa'])->name('anasayfa');
+Route::group(['middleware'=>'sitesetting'], function() {
 
-Route::get('/urunler',[PageController::class,'urunler'])->name('urunler');
+    Route::get('/',[PageHomeController::class,'anasayfa'])->name('anasayfa');
 
-Route::get('/erkek-giyim',[PageController::class,'urunler'])->name('erkekurunler');
-Route::get('/kadin-giyim',[PageController::class,'urunler'])->name('kadinurunler');
-Route::get('/cocuk-giyim',[PageController::class,'urunler'])->name('cocukurunler');
-Route::get('/indirimdekiler',[PageController::class,'indirimdekiurunler'])->name('indirimdekiurunler');
+    Route::get('/urunler',[PageController::class,'urunler'])->name('urunler');
 
-Route::get('/urun/detay',[PageController::class,'urundetay'])->name('urundetay');
+    Route::get('/erkek-giyim',[PageController::class,'urunler'])->name('erkekurunler');
+    Route::get('/kadin-giyim',[PageController::class,'urunler'])->name('kadinurunler');
+    Route::get('/cocuk-giyim',[PageController::class,'urunler'])->name('cocukurunler');
+    Route::get('/indirimdekiler',[PageController::class,'indirimdekiurunler'])->name('indirimdekiurunler');
 
-Route::get('/hakkimizda',[PageController::class,'hakkimizda'])->name('hakkimizda');
+    Route::get('/urun/detay',[PageController::class,'urundetay'])->name('urundetay');
 
-Route::get('/iletisim',[PageController::class,'iletisim'])->name('iletisim');
+    Route::get('/hakkimizda',[PageController::class,'hakkimizda'])->name('hakkimizda');
 
-Route::get('/sepet',[PageController::class,'cart'])->name('sepet');
+    Route::get('/iletisim',[PageController::class,'iletisim'])->name('iletisim');
+
+    Route::get('/sepet',[PageController::class,'cart'])->name('sepet');
+
+});
+
+
