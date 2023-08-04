@@ -22,29 +22,29 @@
         <div class="row">
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
             <div class="icon mr-4 align-self-start">
-                <i class="fa-solid fa-truck-fast fa-3x" style="color: #007bff;"></i>
+                <i class="{{$about->text_1_icon}}" style="color: #007bff;"></i>
               </div>
             <div class="text">
-              <h2 class="text-uppercase">Bedava Kargo</h2>
-              <p>Ürünlerinizi size hızlı ve ücretsiz şekilde ulaşmasını sağlarız.</p>
+              <h2 class="text-uppercase">{{$about->text_1}}</h2>
+              <p>{{$about->text_1_content}}</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
             <div class="icon mr-4 align-self-start">
-                <i class="fa-solid fa-repeat fa-3x" style="color: #007bff;"></i>
+                <i class="{{$about->text_2_icon}}" style="color: #007bff;"></i>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Geri İade</h2>
-              <p>Aldığınız ürünü 14 gün içerisinde site üzerinden verilen iade kodu ile anlaşmalı kargo merkezlerinde geri iade edebilirsiniz.</p>
+                <h2 class="text-uppercase">{{$about->text_2}}</h2>
+                <p>{{$about->text_2_content}}</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
             <div class="icon mr-4 align-self-start">
-                <i class="fa-regular fa-circle-question fa-3x" style="color: #007bff;"></i>
+                <i class="{{$about->text_3_icon}}" style="color: #007bff;"></i>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Müşteri Hizmeti</h2>
-              <p>Müşteri Memnuniyeti için 7/24 ulaşabileceğiniz çağrı merkezimizle size en iyi şekilde yardımcı olmak için hazırda bekliyoruz.</p>
+                <h2 class="text-uppercase">{{$about->text_3}}</h2>
+                <p>{{$about->text_3_content}}</p>
             </div>
           </div>
         </div>

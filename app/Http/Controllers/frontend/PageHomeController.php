@@ -18,6 +18,6 @@ class PageHomeController extends Controller
         $categories = Category::where('status','1')->get();
 
         $about = About::where('id',1)->first();
-        return view('frontend.pages.index',compact('slider','title','categories'));
+        return view('frontend.pages.index',compact('slider','title','categories','about'));
     }
 }
