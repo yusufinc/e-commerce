@@ -43,6 +43,13 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+  <script>
+    const menu=document.querySelector(".menu1");
+const toggle=document.querySelector(".toggle1");
+toggle.addEventListener("click",()=>{
+  menu.classList.toggle("active");
+})
+  </script>
 
   </body>
 </html>
