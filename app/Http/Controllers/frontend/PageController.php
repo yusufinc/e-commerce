@@ -10,15 +10,16 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function urunler(){
-      $products =  Product::where('status','1')->get();
+      $products =  Product::where('status','1')->paginate(1);
         return view('frontend.pages.products',compact('products'));
     }
     public function indirimdekiurunler(){
         return view('frontend.pages.products');
     }
 
-    public function urundetay(){
-        return view('frontend.pages.product');
+    public function urundetay($slug){
+        $products =  Product::where('slug',$slug)->first();
+        return view('frontend.pages.product',compact('products'));
 
     }
 
