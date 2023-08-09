@@ -10,13 +10,20 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function urunler(Request $request){
+    public function urunler(Request $request,$slug=null){
+
+     $category = request()->segment(1) ?? null;
+
         $size = $request->size ?? null;
+
         $color = $request->color ?? null;
+
         $startprice = $request->start_price ?? null;
+
         $endprice = $request->end_price ?? null;
 
         $order = $request->order ?? 'id';
+
         $short = $request->short ?? 'desc';
 
 
@@ -39,8 +46,14 @@ class PageController extends Controller
         return $q;
 
       })
-      ->with('category:id,name,slug');
+      ->with('category:id,name,slug')
+      ->whereHas('category',function($q) use ($category,$slug){
+        if (!empty($slug)) {
+            $q->where('slug',$slug);
+        }
+        return $q;
 
+      });
      $minprice = $products->min('price');
      $maxprice = $products->max('price');
 
@@ -65,8 +78,20 @@ class PageController extends Controller
     }
 
     public function urundetay($slug){
-        $products =  Product::where('slug',$slug)->first();
-        return view('frontend.pages.product',compact('products' ));
+        $product =  Product::whereSlug($slug)->where('status','1')->firstOrFail();
+
+
+
+        $products =  Product::where('id','!=',$product->id)
+        ->where('category_id',$product
+        ->category_id)
+        ->limit(6)
+        ->get();
+
+
+
+
+        return view('frontend.pages.product',compact('product','products'));
 
     }
 
