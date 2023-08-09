@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
     'name'=> 'Urun 1',
     'image'=>'images/shoe_1.jpg',
     'category_id'=> 1,
-    'short_text'=> 'kısa bilgi',
+    'short_text'=> '36.5 numaralı güzel ayakkabı',
     'price'=> 100,
     'size'=> 'Small',
     'color'=> 'Beyaz',

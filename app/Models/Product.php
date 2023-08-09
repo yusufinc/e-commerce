@@ -24,6 +24,9 @@ class Product extends Model
 
     ];
 
+    public function category(){
+       return $this->hasOne(Category::class,'id','category_id');
+    }
     public function sluggable(): array
     {
         return [
