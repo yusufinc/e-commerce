@@ -141,8 +141,8 @@ a:hover {
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     position: absolute;
-    width: 40px;
-    height: 2px;
+    width: 74px;
+    height: 4px;
     background: #7971ea;
 }
 

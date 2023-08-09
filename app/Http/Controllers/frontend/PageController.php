@@ -15,6 +15,14 @@ class PageController extends Controller
         $color = $request->color ?? null;
         $startprice = $request->start_price ?? null;
         $endprice = $request->end_price ?? null;
+
+        $order = $request->order ?? 'id';
+        $short = $request->short ?? 'desc';
+
+
+
+
+
       $products =  Product::where('status','1')->select(['id','name','slug','size','color','price','category_id','image','short_text'])
       ->where(function($q) use ($size,$color,$startprice,$endprice)
       {
@@ -46,11 +54,11 @@ class PageController extends Controller
 
 
 
-     $products = $products->paginate(1);
+     $products = $products->orderBy($order,$short)->paginate(20);
 
 
-         $categories = Category::where('status','1')->where('cat_ust',null)->withCount('items')->get();
-        return view('frontend.pages.products',compact('products','categories','minprice','maxprice','sizelists','colors'));
+        //  $categories = Category::where('status','1')->where('cat_ust',null)->withCount('items')->get();
+        return view('frontend.pages.products',compact('products','minprice','maxprice','sizelists','colors'));
     }
     public function indirimdekiurunler(){
         return view('frontend.pages.products');
