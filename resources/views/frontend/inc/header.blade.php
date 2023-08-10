@@ -14,7 +14,7 @@
             <div class="site-logo ">
               <a href="{{route('anasayfa')}}" class="js-logo-clone" style="
               border-radius: 20px;
-              border: 1px solid #ddd;
+              border: 1px solid #041867;
           ">{{config('app.name')}}</a>
             </div>
           </div>
