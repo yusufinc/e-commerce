@@ -12,10 +12,7 @@
 
           <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
             <div class="site-logo ">
-              <a href="{{route('anasayfa')}}" class="js-logo-clone" style="
-              border-radius: 20px;
-              border: 1px solid #041867;
-          ">{{config('app.name')}}</a>
+<a href="{{route('anasayfa')}}" class="js-logo-clone" style="border-radius: 20px; border: 1px solid #041867;">{{config('app.name')}}</a>
             </div>
           </div>
 

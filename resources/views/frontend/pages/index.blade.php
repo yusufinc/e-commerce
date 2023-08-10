@@ -1,7 +1,7 @@
 @extends('frontend.layout.layout')
 
 @section('content')
-    <div class="site-blocks-cover" style="background-image: url({{asset($slider->image)}});" data-aos="fade">
+    <div class="site-blocks-cover" style="background-image: url({{asset($slider->image)}})" data-aos="fade">
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">

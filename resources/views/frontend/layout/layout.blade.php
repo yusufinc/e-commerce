@@ -26,11 +26,11 @@
 
   <div class="site-wrap">
 
-        @include('frontend.inc.header');
+        @include('frontend.inc.header')
 
         @yield('content')
 
-       @include('frontend.inc.footer');
+       @include('frontend.inc.footer')
 
   </div>
 
