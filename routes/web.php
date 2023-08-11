@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\CustomAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\PageHomeController;
 use App\Http\Controllers\frontend\PageController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +37,10 @@ Route::group(['middleware'=>'sitesetting'], function() {
 
     Route::get('/sepet',[PageController::class,'cart'])->name('sepet');
 
+    Auth::routes();
+
+
+    Route::get('/cikis',[AjaxController::class,'logout'])->name('cikis');
+
 });
-
-
+ 

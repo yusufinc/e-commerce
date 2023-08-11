@@ -6,6 +6,7 @@ use App\Http\Requests\ContentFormRequest;
 use App\Models\Contact;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AjaxController extends Controller
 {
@@ -45,5 +46,12 @@ class AjaxController extends Controller
       $sonkaydedilen =  Contact::create($newData);
 
       return back()->with(['message'=>'Başarıyla gönderildi']);
+    }
+
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect()->route('anasayfa');
     }
 }
