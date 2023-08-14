@@ -206,8 +206,11 @@
 
       <div class="main-panel">
 
+            <div class="content-wrapper">
+                 @yield('content')
+            </div>
 
-       @yield('content')
+
         <!-- content-wrapper ends -->
 
 

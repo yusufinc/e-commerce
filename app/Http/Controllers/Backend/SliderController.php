@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -12,7 +13,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-       return view('backend.pages.slider.index');
+      $sliders = Slider::all();
+       return view('backend.pages.slider.index',compact('sliders'));
     }
 
     /**
