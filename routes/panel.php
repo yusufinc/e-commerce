@@ -20,7 +20,7 @@ Route::group(['middleware'=>['panelsetting','auth'],'prefix'=>'panel','as'=>'pan
 
     Route::put('/slider/{id}/update',[SliderController::class,'update'])->name('slider.update');
 
-    Route::destroy('/slider/{id}/destroy',[SliderController::class,'destroy'])->name('slider.destroy');
+    Route::delete('/slider/{id}/destroy',[SliderController::class,'destroy'])->name('slider.destroy');
 
 
 
