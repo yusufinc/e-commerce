@@ -5,75 +5,66 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Temel Form Elemanları</h4>
-                <p class="card-description">Aşağıdaki formu doldurun</p>
-                <form class="forms-sample">
+                <h4 class="card-title">Slider Ekle</h4>
+                <form action="{{route('panel.slider.store')}}" class="forms-sample" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
-                        <label for="exampleInputName1">Ad</label>
+                        <label id="resim">Resim yükleme</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white">
+                                    <i class="fa-solid fa-image-portrait"></i>
+                                </span>
+                            </div>
+                            <input type="file" name="imgage" class="file-upload-default">
+                            <input type="text" class="form-control file-upload-info bg-info text-dark" id="resim" disabled placeholder="Resim yükleyin">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-warning" type="button">Yükle</button>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="name">Ad</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-primary text-white">
                                     <i class="ti-user"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Adınızı girin">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Adınızı girin">
                         </div>
                     </div>
+
+
+
                     <div class="form-group">
-                        <label for="exampleInputEmail3">E-posta adresi</label>
+                        <label for="content">İçerik</label>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-success text-white">
-                                    <i class="ti-email"></i>
-                                </span>
-                            </div>
-                            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="E-posta adresinizi girin">
+                            <textarea type="text" class="form-control" name="content" id="content" placeholder="İçerik"> </textarea>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="exampleInputPassword4">Parola</label>
+                        <label for="link">Link</label>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-danger text-white">
-                                    <i class="ti-lock"></i>
-                                </span>
-                            </div>
-                            <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Parolanızı girin">
+                            <textarea type="text" class="form-control" name="link" id="link" placeholder="link"> </textarea>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleSelectGender">Cinsiyet</label>
+
+
+
+                   <div class="form-group">
+                        <label for="durum">Durum</label>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-warning text-dark">
-                                    <i class="fa-solid fa-venus-mars"></i>
-                                </span>
-                            </div>
-                            <select class="form-control" id="exampleSelectGender">
-                                <option disabled>Cinsiyet seç</option>
-                                <option>Erkek</option>
-                                <option>Kadın</option>
-                            </select>
+                           <select name="status" class="form-control" id="durum">
+                            <option value="1" selected>Aktif</option>
+                            <option value="0">Pasif</option>
+                           </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Dosya yükleme</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info bg-info text-dark" disabled placeholder="Resim yükleyin">
-                            <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-warning" type="button">Yükle</button>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputCity1">Şehir</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Şehir girin">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleTextarea1">Metin Alanı</label>
-                        <textarea class="form-control" id="exampleTextarea1"  placeholder="Mesajınızı girin" rows="4"></textarea>
-                    </div>
+
                     <button type="submit" class="btn btn-primary mr-2">Gönder</button>
                     <button class="btn btn-light">İptal</button>
                 </form>
