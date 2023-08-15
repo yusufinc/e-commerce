@@ -9,13 +9,18 @@
           <p class="card-description">
             <a href="{{route('panel.slider.create')}}" class="btn btn-info">Yeni</a>
           </p>
+            @if (session()->get('success'))
+            <div class="alert alert-success">
+                {{session()->get('success')}}
+            </div>
+            @endif
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
                   <th>Resim</th>
                   <th>Başlık</th>
-                  <th>İçeriks.</th>
+                  <th>İçerik</th>
                   <th>Link</th>
                   <th>Status</th>
                   <th>Edit</th>
@@ -37,6 +42,7 @@
                                 <a href="{{route('panel.slider.edit',$slider->id)}}" class="btn btn-primary badge">Düzenle</a>
 
                                 <form action="{{route('panel.slider.destroy',$slider->id)}}" method="post">
+                                    @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger badge px-4 ml-2"> Sil </button>
 

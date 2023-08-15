@@ -25,7 +25,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.slider.create');
+        return view('backend.pages.slider.edit');
     }
 
     /**
@@ -33,30 +33,35 @@ class SliderController extends Controller
      */
     public function store(SliderRequest $request)
     {
+        if($request->hasFile('image')){
+            $resim = $request->file('image');
+            $uzanti = $resim->getClientOriginalExtension();
+            $dosyadi = time().'.'.Str::slug($request->name);
 
-       if($request->hasFile('image')){
-        $resim = $request->file('image');
-        $dosyadi = time().'-'.Str::slug($request->name);
-        $uzanti = $resim->getClientOriginalExtension();
-        $yukleklasor = 'img/slider/';
+            $yukleKlasor = 'img/slider/';
 
-        if ($uzanti == 'pdf' || $uzanti == 'svg' || $uzanti == 'webp' ) {
-            $resim->move(public_path($yukleklasor),$dosyadi.'.'.$uzanti);
+            if ($uzanti == 'pdf' || $uzanti == 'svg' || $uzanti == 'webp' || $uzanti == 'jiff' ) {
+                $resim->move(public_path($yukleKlasor),$dosyadi.'.'.$uzanti);
+
+                $resimurl = $yukleKlasor.$dosyadi.'.'.$uzanti;
+            }
+            else {
+                $resim = ImageResize::make($resim);
+                $resim->encode('webp',75)->save($yukleKlasor.$dosyadi.'.webp');
+
+                $resimurl = $yukleKlasor.$dosyadi.'.webp';
+            }
+
         }
-        else {
-            $resim = ImageResize::make($resim);
 
-            $resim->encode('webp',75)->save($yukleklasor.$dosyadi.'webp');
-        }
 
-    }
 
     Slider::create([
         'name' =>$request->name,
         'link' =>$request->link,
         'content' =>$request->content,
         'status' =>$request->status,
-        'image'=>$dosyadi ?? NULL,
+        'image'=>$resimurl ?? NULL,
     ]);
 
 
@@ -85,7 +90,36 @@ class SliderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if($request->hasFile('image')){
+
+            $resim = $request->file('image');
+            $uzanti = $resim->getClientOriginalExtension();
+            $dosyadi = time().'.'.Str::slug($request->name);
+
+            $yukleKlasor = 'img/slider/';
+
+            if ($uzanti == 'pdf' || $uzanti == 'svg' || $uzanti == 'webp' || $uzanti == 'jiff' ) {
+                $resim->move(public_path($yukleKlasor),$dosyadi.'.'.$uzanti);
+            }
+            else {
+                $resim = ImageResize::make($resim);
+                $resim->encode('webp',75)->save($yukleKlasor.$dosyadi.'.webp');
+            }
+
+            $resimurl = $yukleKlasor.$dosyadi.'.'.$uzanti;
+
+        }
+
+        Slider::where('id',$id)->update([
+            'name' =>$request->name,
+            'link' =>$request->link,
+            'content' =>$request->content,
+            'status' =>$request->status,
+            'image'=>$resimurl ?? NULL,
+        ]);
+
+
+            return back()->withSuccess('Başarıyla Güncellendi!');
     }
 
     /**
@@ -93,6 +127,14 @@ class SliderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $slider = Slider::where('id',$id)->firstOrFail();
+        if(file_exists($slider->image)){
+            if(!empty($slider->image)){
+            unlink($slider->image);
+        }
+        }
+
+        $slider->delete();
+        return back()->withSuccess('Başarıyla Kaldırıldı!');
     }
 }
