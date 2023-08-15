@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use ImageResize;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Http\Requests\SliderRequest;
 
 class SliderController extends Controller
 {
@@ -28,9 +31,36 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-        return $request->all();
+
+       if($request->hasFile('image')){
+        $resim = $request->file('image');
+        $dosyadi = time().'-'.Str::slug($request->name);
+        $uzanti = $resim->getClientOriginalExtension();
+        $yukleklasor = 'img/slider/';
+
+        if ($uzanti == 'pdf' || $uzanti == 'svg' || $uzanti == 'webp' ) {
+            $resim->move(public_path($yukleklasor),$dosyadi.'.'.$uzanti);
+        }
+        else {
+            $resim = ImageResize::make($resim);
+
+            $resim->encode('webp',75)->save($yukleklasor.$dosyadi.'webp');
+        }
+
+    }
+
+    Slider::create([
+        'name' =>$request->name,
+        'link' =>$request->link,
+        'content' =>$request->content,
+        'status' =>$request->status,
+        'image'=>$dosyadi ?? NULL,
+    ]);
+
+
+        return back()->withSuccess('Başarıyla Oluşturuldu!');
     }
 
     /**
