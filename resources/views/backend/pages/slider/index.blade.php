@@ -37,7 +37,13 @@
                             <td>{{$slider->name}}</td>
                             <td>{{$slider->content?? ''}}</td>
                             <td>{{$slider->link}}</td>
-                            <td><label class="badge badge-{{$slider->status=='1' ? 'success': 'danger'}} px-2 py-2">{{$slider->status=='1'? 'Akitf': 'Pasif'}}</label></td>
+                            <td>
+                              <div class="checkbox" item-id="{{$slider->id}}">
+                                  <label>
+                                      <input type="checkbox" class="durum"  data-on="Aktif" data-off="Pasif" data-onstyle="success  data-ofstyle="danger" data-toggle="toggle" {{$slider->status=='1' ? 'checked': ''}} >
+                                  </label>
+                              </div>
+                            </td>
                             <td class="d-flex">
                                 <a href="{{route('panel.slider.edit',$slider->id)}}" class="btn btn-primary badge">Düzenle</a>
 
@@ -66,4 +72,14 @@
 
 
   </div>
+@endsection
+
+@section('customjs')
+<script>
+
+    $(document).on('change', '.durum', function(e){
+        alert('test');
+    });
+
+</script>
 @endsection

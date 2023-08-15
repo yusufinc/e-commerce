@@ -19,6 +19,18 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset('backend')}}/css/vertical-layout-light/style.css">
+<!-- CSS -->
+
+<link href="{{asset('backend/css/bootstrap-toggle.min.css')}}" rel="stylesheet">
+
+<link rel="stylesheet" href="{{asset('backend/css/bootstrap.min.css')}}"/>
+
+<link rel="stylesheet" href="{{asset('backend/css/alertify.min.css')}}"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="{{asset('backend/css/default.min.css')}}"/>
+<!-- Bootstrap theme -->
+
+
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('backend')}}/images/favicon.png" />
 </head>
@@ -228,6 +240,9 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
+
+  <script src="{{asset('backend')}}/js/jquery.min.js"></script>
+
   <script src="{{asset('backend')}}/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
@@ -248,6 +263,12 @@
   <!-- Custom js for this page-->
   <script src="{{asset('backend')}}/js/dashboard.js"></script>
   <script src="{{asset('backend')}}/js/Chart.roundedBarCharts.js"></script>
+
+<script src="{{asset('backend/js/bootstrap-toggle.min.js')}}"></script>
+
+<script src="{{asset('backend/js/alertify.min.js')}}"></script>
+@yield('customjs')
+
   <!-- End custom js for this page-->
 </body>
 
