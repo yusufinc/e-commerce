@@ -137,4 +137,15 @@ class SliderController extends Controller
         $slider->delete();
         return back()->withSuccess('Başarıyla Kaldırıldı!');
     }
+
+    public function status(Request $request){
+        $update=$request->statu;
+
+        $updatecheck = $update == true ? 'aktif' : 'pasif';
+
+        Slider::where('id',$request->id)->update(['status'=>$update]);
+
+
+        return response(['error'=>false,'status'=>$update]);
+    }
 }

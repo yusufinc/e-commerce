@@ -33,6 +33,7 @@
 
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('backend')}}/images/favicon.png" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
   <div class="container-scroller">

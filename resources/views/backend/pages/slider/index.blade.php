@@ -78,7 +78,28 @@
 <script>
 
     $(document).on('change', '.durum', function(e){
-        alert('test');
+            id = $(this).closest('.checkbox').attr('item-id');
+            statu = $(this).prop('checked');
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                },
+                type:"POST",
+                url:"{{route('panel.slider.status')}}",
+                data:{
+                    id:id,
+                    statu:statu
+                },
+
+                success: function (response){
+                    if (response.status=="true") {
+                        alertify.success("Durum Aktif Edildi");
+                    }
+                    else {
+                        alertify.error("Durum Pasif Edildi");
+                    }
+                }
+            });
     });
 
 </script>
