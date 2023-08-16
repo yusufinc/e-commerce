@@ -1,7 +1,7 @@
 @extends('frontend.layout.layout')
 
 @section('content')
-    <div class="site-blocks-cover" style="background-image: url({{asset($slider->image)}})" data-aos="fade">
+    <div class="site-blocks-cover" style="background-image: url({{asset($slider->image ?? '')}})" data-aos="fade">
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
@@ -9,13 +9,14 @@
             <div class="intro-text text-center text-md-left">
               <p class="mb-4">{{$slider->content ?? ''}}</p>
               <p>
-                <a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Şimdi Satın Al</a>
+                <a href="{{$slider->link ?? ''}}" class="btn btn-sm btn-primary">Şimdi Satın Al</a>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 
     <div class="site-section site-section-sm site-blocks-1">
       <div class="container">
@@ -110,7 +111,7 @@
                     <h3><a href="#">Tank Top</a></h3>
                     <p class="mb-0">Finding perfect t-shirt</p>
                     <p class="text-primary font-weight-bold">50 ₺</p>
-                    <a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a>
+                    <a href="{{$slider->link ?? ''}}" class="btn btn-sm btn-primary">Sepete Ekle</a>
                   </div>
                 </div>
               </div>
@@ -123,7 +124,7 @@
                     <h3><a href="#">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">50 ₺</p>
-                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
+                    <p class="rounded-circle"><a href="{{$slider->link ?? ''}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>
@@ -136,7 +137,7 @@
                     <h3><a href="#">Polo Shirt</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">50 ₺</p>
-                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
+                    <p class="rounded-circle"><a href="{{$slider->link ?? ''}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>
@@ -149,7 +150,7 @@
                     <h3><a href="#">T-Shirt Mockup</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
-                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
+                    <p class="rounded-circle"><a href="{{$slider->link ?? ''}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>
@@ -162,7 +163,7 @@
                     <h3><a href="#">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
-                    <p class="rounded-circle"><a href="{{url('/').'/'.$slider->link}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
+                    <p class="rounded-circle"><a href="{{$slider->link ?? ''}}" class="btn btn-sm btn-primary">Sepete Ekle</a></p>
                   </div>
                 </div>
               </div>

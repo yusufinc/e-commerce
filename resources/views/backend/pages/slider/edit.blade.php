@@ -40,12 +40,6 @@
 
 
                     <div class="form-group">
-                       <div class="input-group col-xs-12">
-                        <img src="{{asset($slider->image ?? 'img.resimyok.webp')}}" alt="">
-                       </div>
-                    </div>
-
-                    <div class="form-group">
                         <label id="resim">Resim yükleme</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -79,11 +73,10 @@
                     <div class="form-group">
                         <label for="content">İçerik</label>
                         <div class="input-group">
-                            <textarea class="form-control" name="content" value id="content" row="3" placeholder="İçerik">
-                                {!! $slider->content ?? '' !!}
-                            </textarea>
+                            <textarea class="form-control" name="content" id="content" placeholder="İçerik">{{$slider->content ?? ''}}</textarea>
                         </div>
                     </div>
+
 
                     <div class="form-group">
                         <label for="link">Link</label>
