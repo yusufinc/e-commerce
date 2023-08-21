@@ -67,7 +67,7 @@ class PageController extends Controller
 
 
 
-     $products = $products->orderBy($order,$short)->paginate(20);
+     $products = $products->orderBy($order,$short)->paginate(21 );
 
 
         //  $categories = Category::where('status','1')->where('cat_ust',null)->withCount('items')->get();
@@ -102,11 +102,6 @@ class PageController extends Controller
 
     }
 
-
-    public function cart(){
-        return view('frontend.pages.cart');
-
-    }
 
     public function iletisim(){
 
