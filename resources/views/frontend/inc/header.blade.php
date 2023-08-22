@@ -24,7 +24,7 @@
                 <li class="px-1">
                   <a href="{{route('sepet')}}" class="site-cart">
                     <i class="fa-solid fa-basket-shopping fa-lg"></i>
-                    <span class="count">2</span>
+                    <span class="count">{{$countQty}}</span>
                   </a>
                 </li>
                 <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>

@@ -34,35 +34,21 @@ class SliderController extends Controller
     public function store(SliderRequest $request)
     {
         if($request->hasFile('image')){
-            $resim = $request->file('image');
-            $uzanti = $resim->getClientOriginalExtension();
+            $image = $request->file('image');
             $dosyadi = time().'.'.Str::slug($request->name);
-
             $yukleKlasor = 'img/slider/';
-
-            if ($uzanti == 'pdf' || $uzanti == 'svg' || $uzanti == 'webp' || $uzanti == 'jiff' ) {
-                $resim->move(public_path($yukleKlasor),$dosyadi.'.'.$uzanti);
-
-                $resimurl = $yukleKlasor.$dosyadi.'.'.$uzanti;
-            }
-            else {
-                $resim = ImageResize::make($resim);
-                $resim->encode('webp',75)->save($yukleKlasor.$dosyadi.'.webp');
-
-                $resimurl = $yukleKlasor.$dosyadi.'.webp';
-            }
-
+            $imageurl = resimyukle($image,$dosyadi,$yukleKlasor);
         }
 
 
 
-    Slider::create([
-        'name' =>$request->name,
-        'link' =>$request->link,
-        'content' =>$request->content,
-        'status' =>$request->status,
-        'image'=>$resimurl ?? NULL,
-    ]);
+            Slider::create([
+                'name' =>$request->name,
+                'link' =>$request->link,
+                'content' =>$request->content,
+                'status' =>$request->status,
+                'image'=>$imageurl ?? NULL,
+            ]);
 
 
         return back()->withSuccess('Başarıyla Oluşturuldu!');
@@ -90,33 +76,29 @@ class SliderController extends Controller
      */
     public function update(Request $request, string $id)
     {
+         $slider = Slider::where('id',$id)->firstOrFail();
+
         if($request->hasFile('image')){
 
-            $resim = $request->file('image');
-            $uzanti = $resim->getClientOriginalExtension();
+            dosyasil($slider->image);
+            $image = $request->file('image');
             $dosyadi = time().'.'.Str::slug($request->name);
-
             $yukleKlasor = 'img/slider/';
-
-            if ($uzanti == 'pdf' || $uzanti == 'svg' || $uzanti == 'webp' || $uzanti == 'jiff' ) {
-                $resim->move(public_path($yukleKlasor),$dosyadi.'.'.$uzanti);
-            }
-            else {
-                $resim = ImageResize::make($resim);
-                $resim->encode('webp',75)->save($yukleKlasor.$dosyadi.'.webp');
-            }
-
-            $resimurl = $yukleKlasor.$dosyadi.'.'.$uzanti;
+            $resimurl = resimyukle($image,$dosyadi,$yukleKlasor);
 
         }
 
-        Slider::where('id',$id)->update([
+
+
+
+        $slider->update([
             'name' =>$request->name,
             'link' =>$request->link,
             'content' =>$request->content,
             'status' =>$request->status,
             'image'=>$resimurl ?? NULL,
         ]);
+
 
 
             return back()->withSuccess('Başarıyla Güncellendi!');
@@ -128,11 +110,8 @@ class SliderController extends Controller
     public function destroy(Request $request)
     {
         $slider = Slider::where('id',$request->id)->firstOrFail();
-        if(file_exists($slider->image)){
-            if(!empty($slider->image)){
-            unlink($slider->image);
-        }
-        }
+
+       dosyasil($slider->image);
 
         $slider->delete();
         return response(['error'=>false,'message'=>'Başarıyla Silindi']);

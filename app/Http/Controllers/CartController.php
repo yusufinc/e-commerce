@@ -22,7 +22,7 @@ class CartController extends Controller
 
     public function add(Request $request ){
         $productID = $request->id;
-        $qty = $request->qty;
+        $qty = $request->qty ?? 1;
         $size = $request->size;
        $urun = Product::find($productID);
        if(!$urun){
