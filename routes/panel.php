@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\SliderController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\CategoryController;
 
 
 Route::group(['middleware'=>['panelsetting','auth'],'prefix'=>'panel','as'=>'panel.'], function() {
@@ -25,6 +26,10 @@ Route::group(['middleware'=>['panelsetting','auth'],'prefix'=>'panel','as'=>'pan
     Route::post('/slider-durum/update',[SliderController::class,'status'])->name('slider.status');
 
 
+
+    Route::resource('/category',CategoryController::class)->except('destroy');
+    Route::delete('/category/destroy',[CategoryController::class,'destroy'])->name('category.destroy');
+    Route::post('/category-durum/update',[CategoryController::class,'status'])->name('category.status');
 
 
 });
