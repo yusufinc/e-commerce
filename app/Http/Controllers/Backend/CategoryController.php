@@ -33,7 +33,7 @@ class CategoryController extends Controller
     {
         if($request->hasFile('image')){
             $image = $request->file('image');
-            $dosyadi = time().'.'.Str::slug($request->name);
+            $dosyadi = time().'.'.Str::rug($request->name);
             $yukleKlasor = 'img/kategori/';
             $imageurl = resimyukle($image,$dosyadi,$yukleKlasor);
         }
